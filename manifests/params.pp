@@ -9,8 +9,8 @@ class windows_containers::params {
           $hyperv_container_host         = undef
           $container_host                = $::hostname
           $container_image_repo_location = 'C:\\ProgramData\\Microsoft\\Windows\\Hyper-V\\Container Image Store'
-          $nanoserver                    = undef,
-          $windowsservercore             = undef,
+          $nanoserver                    = undef
+          $windowsservercore             = undef
 
         }
         default:{
