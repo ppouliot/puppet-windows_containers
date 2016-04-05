@@ -46,14 +46,10 @@ for upgrading, you may wish to include an additional section here: Upgrading
 (For documentation on MAAS, see https://windows_containers.ubuntu.com/docs).
 
 ## Usage
-
-  ...
+  ```
   class{'windows_containers':}
-  ...
 
-
-
-
+  ```
 ## Reference
 * https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/
 * https://msdn.microsoft.com/en-us/virtualization/windowscontainers/deployment/deployment
