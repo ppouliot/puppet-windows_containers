@@ -17,11 +17,9 @@
 Windows Server 2016 now supports Container Technology, this puppet module 
 configures Windows container technology and Docker APIs on Windows 2016 Server
 
- ```
 
 ## Module Description
 This Puppet module deploys and configures Microsoft's Container Technology
- ```
 
 
 ## Setup
@@ -47,22 +45,20 @@ If your most recent release breaks compatibility or requires particular steps
 for upgrading, you may wish to include an additional section here: Upgrading
 (For documentation on MAAS, see https://windows_containers.ubuntu.com/docs).
 
-
- ```
- ```
-
-
 ## Usage
 
   class{'windows_containers':}
 
- ```
 
 
 
 ## Reference
+* https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/
+* https://msdn.microsoft.com/en-us/virtualization/windowscontainers/deployment/deployment
+* https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/live/windows-server-container-tools/New-ContainerHost/New-ContainerHost.ps1
+* https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/live/hyperv-tools/Convert-WindowsImage/Convert-WindowsImage.ps1
 
- ```
+
 
 ### Classes
 * `windows_containers`: Main Class
