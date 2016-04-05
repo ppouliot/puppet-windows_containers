@@ -40,21 +40,25 @@ class windows_containers::deploy (){
 #    provider => powershell,
 #  }
 
-  if windows_containers::nanoserver {
+  if windows_containers::nanoserver == 'present' {
     exec{'Install NanoServer Container Image':
-      command  => 'Install-ContainerImage -Name NanoServer -Version 10.0.10586.0',
-      provider => powershell,
-      timeout  => 0,
-      require  => Exec['InstallPackageProvider_ContainerProvider'],
+      command   => 'Install-ContainerImage -Name NanoServer -Version 10.0.10586.0',
+      provider  => powershell,
+      timeout   => 0,
+      logoutput => true,
+      unless    => 'Find-ContainerImage -Name NanoServer -Version 10.0.10586.0',
+      require   => Exec['InstallPackageProvider_ContainerProvider'],
     }
   }
 
-  if windows_containers::windowsservercore {
+  if windows_containers::windowsservercore == 'present' {
     exec{'Install Windows Server Core Container Image':
-      command  => 'Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0',
-      provider => powershell,
-      timeout  => 0,
-      require  => Exec['InstallPackageProvider_ContainerProvider'],
+      command   => 'Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0',
+      provider  => powershell,
+      timeout   => 0,
+      logoutput => true,
+      unless    => 'Find-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0',
+      require   => Exec['InstallPackageProvider_ContainerProvider'],
     }
   }
   # Install Docker
