@@ -54,12 +54,13 @@ class windows_containers (
     validate_bool($hyperv_container_host)
   }
   if $nanoserver {
-    validate_bool($nanoserver)
+    validate_re($nanoserver, '^(present|absent)$', 'valid values for nanoserver are \'present\' or \'absent\'')
   }
-  if $windowservercore {
 
-    validate_bool($windowsservercore)
+  if $windowservercore {
+    validate_re($windowsservercore, '^(present|absent)$', 'valid values for windowsservercore are \'present\' or \'absent\'')
   }
+
   class{'windows_containers::deploy':} ->
   class{'windows_containers::config':}
 
