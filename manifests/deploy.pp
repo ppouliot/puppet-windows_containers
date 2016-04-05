@@ -31,9 +31,8 @@ class windows_containers::deploy (){
   exec{'install_package_provider':
     command => 'Install-PackageProvider ContainerProvider -Force',
     provider => powershell,
-  }
-  # Install Docker
-  notice("${module_name}: Docker Installation")
+  } ->
+
   if windows_containers::nanoserver {
     exec{'Install NanoServer Container Image':
       command => 'Install-ContainerImage -Name NanoServer -Version 10.0.10586.0',
@@ -47,5 +46,8 @@ class windows_containers::deploy (){
       provider => powershell,
     }
   }
+  # Install Docker
+  notice("${module_name}: Docker Installation")
+
 
 }
