@@ -47,7 +47,9 @@ for upgrading, you may wish to include an additional section here: Upgrading
 
 ## Usage
 
+  ...
   class{'windows_containers':}
+  ...
 
 
 
