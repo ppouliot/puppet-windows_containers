@@ -22,14 +22,9 @@ configures Windows container technology and Docker APIs on Windows 2016 Server
 This Puppet module deploys and configures Microsoft's Container Technology
 
 
-## Setup
 
 ### What windows_containers affects
-
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+This module modifies the systems features, files and applications.
 
 ### Setup Requirements **OPTIONAL**
 
