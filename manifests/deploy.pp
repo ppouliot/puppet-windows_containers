@@ -14,16 +14,22 @@ class windows_containers::deploy (){
   windowsfeature{'containers':
     ensure => $windows_containers::ensure
     restart => true,
+  } ->
+  # Install Container OS images 
+  notice("${module_name}:Enabling Windows Container OS Image Creation")
+  exec{'install_package_provider-container_provider':
+    command  => 'Install-PackageProvider ContainerProvider -Force',
+    provider => powershell,
   }
 
   # configure the virtual switch using the puppet-hyper_v virtualswitch type
-  notice("${module_name}: Configure VirtualSwitch for Windows Containers")
+  notice("${module_name}: Configure VirtualSwitch for Windows Containers using virtualswitch type from puppet-hyper_v")
   virtual_switch { 'container-virtual-switch':
-    notes             => "This virtual switch is managed by puppet module ${module_name}",
+    notes             => "This virtual switch is managed by puppet module ${module_name} and puppet-hyper_v.",
     type              => External,
     os_managed        => true,
     interface_address => $::ipaddress,
-  } ->
+  }
   
   # Configure NAT 
   notice("${module_name}: NAT Configuration")
@@ -31,12 +37,6 @@ class windows_containers::deploy (){
 #    command  => 'New-NetNat -Name ContainerNat -InternalIPInterfaceAddressPrefix "172.16.0.0/12"',
 #    provider => powershell,
 #  }
-  # Install Container OS images 
-  notice("${module_name}:Enabling Windows Container OS Image Creation")
-  exec{'install_package_provider-container_provider':
-    command  => 'Install-PackageProvider ContainerProvider -Force',
-    provider => powershell,
-  }
 
   if windows_containers::nanoserver {
     exec{'Install NanoServer Container Image':
