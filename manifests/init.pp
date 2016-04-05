@@ -40,20 +40,26 @@
 class windows_containers (
 
   $ensure                        = $windows_containers::params::ensure,
-  $restart                       = $windows_containers::params::restart,
   $container_host                = $windows_containers::params::container_host,
   $hyperv_container_host         = $windows_containers::params::hyperv_container_host,
-  $container_image_repo_location = $windows_containers::params::container_image_repo_location
+  $container_image_repo_location = $windows_containers::params::container_image_repo_location,
+  $nanoserver                    = $windows_containers::params::nanoserver,
+  $windowsservercore             = $windows_containers::params::windowsservercore,
 
 ) inherits windows_containers::params {
 
   validate_re($ensure, '^(present|absent)$', 'valid values for ensure are \'present\' or \'absent\'')
-  validate_bool($restart)
   
   if $hyperv_container_host {
     validate_bool($hyperv_container_host)
   }
+  if $nanoserver {
+    validate_bool($nanoserver)
+  }
+  if $windowservercore {
 
+    validate_bool($windowsservercore)
+  }
   class{'windows_containers::deploy':} ->
   class{'windows_containers::config':}
 
