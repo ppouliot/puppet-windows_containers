@@ -6,9 +6,11 @@
 #
 # Document parameters here.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*ensure*]
+# [*restart*]
+# [*container_host*]
+# [*hyperv_container_host*]
+# [*container_image_repo_location*]
 #
 # === Variables
 #
@@ -37,13 +39,20 @@
 #
 class windows_containers (
 
-  $ensure  = $windows_containers::params::ensure,
-  $restart = $windows_containers::params::restart
+  $ensure                        = $windows_containers::params::ensure,
+  $restart                       = $windows_containers::params::restart,
+  $container_host                = $windows_containers::params::container_host,
+  $hyperv_container_host         = $windows_containers::params::hyperv_container_host,
+  $container_image_repo_location = $windows_containers::params::container_image_repo_location
 
 ) inherits windows_containers::params {
 
   validate_re($ensure, '^(present|absent)$', 'valid values for ensure are \'present\' or \'absent\'')
   validate_bool($restart)
+  
+  if $hyperv_container_host {
+    validate_bool($hyperv_container_host)
+  }
 
   class{'windows_containers::deploy':} ->
   class{'windows_containers::config':}

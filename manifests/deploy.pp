@@ -5,7 +5,9 @@ class windows_containers::deploy (){
 
   # Install the container features
   notice("${module_name}: Hyper-V & Container Features")
-  class{'hyper_v':} -> 
+  if ($windows_containers::hyperv_container_host){
+    class{'hyper_v':} 
+  } 
   windowsfeature{'containers':
     ensure => $windows_containers::ensure
     restart => $windows_containers::restart
