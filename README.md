@@ -21,6 +21,8 @@ configures Windows container technology and Docker APIs on Windows 2016 Server
 
 ## Module Description
 This Puppet module deploys and configures Microsoft's Container Technology
+ ```
+
 
 ## Setup
 
@@ -36,6 +38,7 @@ This Puppet module deploys and configures Microsoft's Container Technology
 If your module requires anything extra before setting up (pluginsync enabled,
 etc.), mention it here.
 
+
 ### Beginning with windows_containers
 
 The very basic steps needed for a user to get the module up and running.
@@ -44,13 +47,23 @@ If your most recent release breaks compatibility or requires particular steps
 for upgrading, you may wish to include an additional section here: Upgrading
 (For documentation on MAAS, see https://windows_containers.ubuntu.com/docs).
 
+
+ ```
+ ```
+
+
 ## Usage
 
-  ```
   class{'windows_containers':}
-  ```
+
+ ```
+
+
 
 ## Reference
+
+ ```
+
 ### Classes
 * `windows_containers`: Main Class
 * `windows_containers::params`: Sets the defaults for the windows_containers module parameters
