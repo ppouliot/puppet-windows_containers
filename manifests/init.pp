@@ -45,10 +45,7 @@ class windows_containers (
   validate_re($ensure, '^(present|absent)$', 'valid values for ensure are \'present\' or \'absent\'')
   validate_bool($restart)
 
-  windowsfeature{'containers':
-    ensure => $windows_containers::ensure
-    restart => $windows_containers::restart
-  }
-
+  class{'windows_containers::deploy':} ->
+  class{'windows_containers::config':}
 
 }

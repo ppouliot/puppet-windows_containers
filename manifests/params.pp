@@ -5,8 +5,10 @@ class windows_containers::params {
       case $kernelmajversion {
         '10.0':{
 
-          $ensure  = present,
-          $restart = true,
+          $ensure         = present
+          $restart        = true
+          $container_host = $::hostname
+          $container_image_repo_location = 'C:\\ProgramData\\Microsoft\\Windows\\Hyper-V\\Container Image Store'
 
         }
         default:{
