@@ -12,7 +12,7 @@ class windows_containers::deploy (){
 
   notice("${module_name} deploying Container Feature")
   windowsfeature{'containers':
-    ensure => $windows_containers::ensure
+    ensure => $windows_containers::ensure,
     restart => true,
   } ->
   # Install Container OS images 
