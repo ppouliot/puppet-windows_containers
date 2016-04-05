@@ -10,12 +10,12 @@ class windows_containers::params {
 
         }
         default:{
-          fail("The Windows Platform with kernel version ${kernelmajversion} is not currently supported.")
+          fail("${module_name} requires Windows Server 2016 or newer.")
         }
       }
     }
     default:{
-      fail("This module is not for use with non Windows based kernels such as ${::kernel}")
+      fail("${module_name} only works on Windows based kernels!")
     }
   }
 }

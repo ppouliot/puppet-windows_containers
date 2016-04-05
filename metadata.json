@@ -7,6 +7,13 @@
   "source": "https://github.com/ppouliot/puppet-windows_containers",
   "project_page": "https://github.com/ppouliot/puppet-windows_containers",
   "issues_url": "https://github.com/ppouliot/puppet-windows_containers/issues",
+  "tags": ["windows", "containers", "powershell", "docker"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem": "windows",
+    "operatingsystemrelease": ["2016"]
+    }
+  ],
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
     {"name":"puppet-windowsfeature","version_requirement":">= 1.0.1"}

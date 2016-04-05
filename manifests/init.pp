@@ -42,6 +42,9 @@ class windows_containers (
 
 ) inherits windows_containers::params {
 
+  validate_re($ensure, '^(present|absent)$', 'valid values for ensure are \'present\' or \'absent\'')
+  validate_bool($restart)
+
   windowsfeature{'containers':
     ensure => $windows_containers::ensure
     restart => $windows_containers::restart
