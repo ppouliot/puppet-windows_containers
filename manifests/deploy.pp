@@ -21,6 +21,7 @@ class windows_containers::deploy (){
     command  => 'Install-PackageProvider ContainerProvider -Force',
     provider => powershell,
     require  => Windowsfeature['containers'],
+    timeout  => 0,
   }
 
   # configure the virtual switch using the puppet-hyper_v virtualswitch type
@@ -43,6 +44,7 @@ class windows_containers::deploy (){
     exec{'Install NanoServer Container Image':
       command  => 'Install-ContainerImage -Name NanoServer -Version 10.0.10586.0',
       provider => powershell,
+      timeout  => 0,
       require  => Exec['InstallPackageProvider_ContainerProvider'],
     }
   }
@@ -51,6 +53,7 @@ class windows_containers::deploy (){
     exec{'Install Windows Server Core Container Image':
       command  => 'Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0',
       provider => powershell,
+      timeout  => 0,
       require  => Exec['InstallPackageProvider_ContainerProvider'],
     }
   }
