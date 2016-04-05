@@ -4,14 +4,11 @@
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with windows_containers](#setup)
-    * [What windows_containers affects](#what-windows_containers-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with windows_containers](#beginning-with-windows_containers)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+3. [Usage - Configuration options and additional functionality](#usage)
+4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
+7. [License - Copyright and License](#license)
 
 ## Overview
 Windows Server 2016 now supports Container Technology, this puppet module 
@@ -21,24 +18,6 @@ configures Windows container technology and Docker APIs on Windows 2016 Server
 ## Module Description
 This Puppet module deploys and configures Microsoft's Container Technology
 
-
-
-### What windows_containers affects
-This module modifies the systems features, files and applications.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-
-### Beginning with windows_containers
-
-The very basic steps needed for a user to get the module up and running.
-include windows_containers
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For documentation on MAAS, see https://windows_containers.ubuntu.com/docs).
 
 ## Usage
   ```
@@ -82,9 +61,9 @@ necessary or important to include here. Please use the `## ` header.
 ## Contributors
 * Peter Pouliot <peter@pouliot.net>
 
-## Copyright and License
+## License
 
-Copyright (C) 2015 Peter J. Pouliot
+Copyright (C) 2016 Peter J. Pouliot
 
 Peter Pouliot can be contacted at: peter@pouliot.net
 
