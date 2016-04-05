@@ -1,0 +1,15 @@
+{
+  "name": "puppet-windows_containers",
+  "version": "0.0.1",
+  "author": "Peter J. Pouliot",
+  "summary": "A puppet module to configure Containers on Windows 2016 Platforms",
+  "license": "Apache 2.0",
+  "source": "https://github.com/ppouliot/puppet-windows_containers",
+  "project_page": "https://github.com/ppouliot/puppet-windows_containers",
+  "issues_url": "https://github.com/ppouliot/puppet-windows_containers/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"puppet-windowsfeature","version_requirement":">= 1.0.1"}
+  ]
+}
+
