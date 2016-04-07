@@ -7,12 +7,12 @@ class windows_containers::deploy (){
   notice("${module_name}: Hyper-V & Container Features")
   if ($windows_containers::hyperv_container_host){
     notice("${module_name} deploying Hyper-V Features for Hyper-V enhanced Windows Container Images")
-    class{'hyper_v':} 
-  } 
+    class{'hyper_v':}
+  }
 
   notice("${module_name} deploying Container Feature")
   windowsfeature{'containers':
-    ensure => $windows_containers::ensure,
+    ensure  => $windows_containers::ensure,
     restart => true,
   }
   # Install Container OS images 
