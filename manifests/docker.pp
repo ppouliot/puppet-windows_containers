@@ -4,5 +4,10 @@
 
 class windows_containers::docker {
 
-}
+  vcsrepo{'C:/PrograData/docker'
+    ensure => 'present',
+    source => 'https://github.com/docker/docker',
+    revision => 'v1.11.0-rc4',
+  }
 
+}
