@@ -51,7 +51,7 @@ class windows_containers::docker {
     unless    => 'cmd.exe /c sc.exe query docker',
   } ->
 
-  service{'dockerd':
+  service{'docker':
     ensure => running,
     enable => true,
   }
