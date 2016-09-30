@@ -11,6 +11,7 @@ class windows_containers::params {
           $container_image_repo_location = 'C:\\ProgramData\\Microsoft\\Windows\\Hyper-V\\Container Image Store'
           $nanoserver                    = undef
           $windowsservercore             = undef
+          $windows_docker_api            = undef
 
         }
         default:{

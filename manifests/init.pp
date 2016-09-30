@@ -45,6 +45,7 @@ class windows_containers (
   $container_image_repo_location = $windows_containers::params::container_image_repo_location,
   $nanoserver                    = $windows_containers::params::nanoserver,
   $windowsservercore             = $windows_containers::params::windowsservercore,
+  $windows_docker_api            = $windows_containers::params::windows_docker_api,
 
 ) inherits windows_containers::params {
 
@@ -63,5 +64,9 @@ class windows_containers (
 
   class{'windows_containers::deploy':} ->
   class{'windows_containers::config':}
-
+  if $windows_docker_api {
+    class{'windows_containers::docker':
+      require => Class['windows_containers::config'],
+    }
+  }
 }
