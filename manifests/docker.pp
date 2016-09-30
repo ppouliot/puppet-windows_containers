@@ -24,5 +24,10 @@ class windows_containers::docker {
     target => 'C:\Program Files\Docker',
   }
 
-}
+  vcsrepo{'C:/PrograData/docker'
+    ensure => 'present',
+    source => 'https://github.com/docker/docker',
+    revision => 'v1.11.0-rc4',
+  }
 
+}
