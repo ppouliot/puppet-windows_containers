@@ -21,7 +21,7 @@ class windows_containers::docker {
   }
 
   staging::deploy {'docker.zip':
-    source => 'https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip'
+    source => 'https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip',
     target => 'C:\Program Files\Docker',
   }
 
