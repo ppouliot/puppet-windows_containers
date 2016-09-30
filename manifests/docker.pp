@@ -4,6 +4,9 @@
 #   https://msdn.microsoft.com/en-us/virtualization/windowscontainers/docker/configure_docker_daemon?f=255&MSPPError=-2147217396 
 
 class windows_containers::docker {
+  package{'unzip':
+    ensure => 'latest',
+  } -> 
   class{'staging':
     path    => 'C:/programdata/staging',
     owner   => 'Administrator',
