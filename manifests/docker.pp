@@ -24,9 +24,38 @@ class windows_containers::docker {
   }
 
   staging::deploy {'docker.zip':
-    source => 'https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip',
-    target => 'C:\Program Files\Docker',
+    source  => 'https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip',
+    target  => 'C:\Program Files',
+    creates => [
+      'C:\Program Files\docker',
+      'C:\Program Files\docker\docker.exe',
+      'C:\Program Files\docker\dockerd.exe',
+    ],
+  } ->
+  acl{'c:\Program Files\docker':
+    permissions => [
+      { identity => 'Administrator', rights => ['full'] },
+      { identity => 'Administrators', rights => ['full'] },
+    ],
+    require     => Class['staging'],
+  } ->
+  windows_path {'C:\Program Files\docker':
+    ensure => present,
+  } ->
+
+  exec {'dockerd_register_service':
+    command   => 'cmd.exe /c "C:\\Program Files\\docker\\dockerd.exe" --register-service',
+    cwd       => 'C:/Program Files/docker',
+    path      => $::path,
+    logoutput => true,
+    unless    => 'cmd.exe /c sc.exe query docker',
+  } ->
+
+  service{'dockerd':
+    ensure => running,
+    enable => true,
   }
+
 
 #  vcsrepo{'C:/PrograData/docker':
 #    ensure => 'present',
