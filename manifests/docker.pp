@@ -1,6 +1,7 @@
 # == Class: windows_containers::docker
 #   Translation of steps to install docker on windows here:
 #   https://msdn.microsoft.com/en-us/virtualization/windowscontainers/deployment/docker_windows
+#   https://msdn.microsoft.com/en-us/virtualization/windowscontainers/docker/configure_docker_daemon?f=255&MSPPError=-2147217396 
 
 class windows_containers::docker {
   class{'staging':
